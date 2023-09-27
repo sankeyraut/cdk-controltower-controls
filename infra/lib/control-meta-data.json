@@ -38,7 +38,6 @@
     { "name": "AWS-GR_RDS_SNAPSHOTS_PUBLIC_PROHIBITED", "enabled": true },
     { "name": "AWS-GR_RDS_STORAGE_ENCRYPTED", "enabled": true },
     { "name": "AWS-GR_REDSHIFT_CLUSTER_PUBLIC_ACCESS_CHECK", "enabled": true },
-    { "name": "AWS-GR_REGION_DENY", "enabled": true },
     { "name": "AWS-GR_RESTRICTED_COMMON_PORTS", "enabled": true },
     { "name": "AWS-GR_RESTRICTED_SSH", "enabled": true },
     { "name": "AWS-GR_RESTRICT_ROOT_USER", "enabled": true },
