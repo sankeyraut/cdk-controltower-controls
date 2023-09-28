@@ -22,10 +22,11 @@ export class ControlTowerControlsStack extends Stack {
       process.env.CDK_DEFAULT_ACCOUNT +
       ":" +
       props.orgId;
+    var controlArray = [];
     for (var i = 0; i < controlmetadata.controls.length; i++) {
       //console.log(controlmetadata.controls[i]);
       if (controlmetadata.controls[i].enabled) {
-        new controltower.CfnEnabledControl(
+        var control = new controltower.CfnEnabledControl(
           this,
           controlmetadata.controls[i].name + "_" + props.orgId,
           {
@@ -34,7 +35,12 @@ export class ControlTowerControlsStack extends Stack {
             targetIdentifier: ouConst,
           }
         );
+        controlArray.push(control);
       }
+    }
+    //dependency to control concurrency
+    for (var j = 1; j < controlArray.length; j++) {
+      controlArray[j].node.addDependency(controlArray[j - 1]);
     }
   }
 }
